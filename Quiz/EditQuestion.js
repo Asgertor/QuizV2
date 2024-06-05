@@ -5,7 +5,6 @@ import { firestore } from "../firebase";
 import { styles } from "../styles";
 import { AntDesign } from "@expo/vector-icons";
 
-
 export const EditQuestion = ({ route, navigation }) => {
   const { questionId } = route.params;
   const [question, setQuestion] = useState("");
@@ -14,7 +13,7 @@ export const EditQuestion = ({ route, navigation }) => {
 
   useEffect(() => {
     const fetchQuestion = async () => {
-      const docRef = doc(firestore, "quizzes", questionId);
+      const docRef = doc(firestore, "quizQuestions", questionId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         const data = docSnap.data();
@@ -50,7 +49,7 @@ export const EditQuestion = ({ route, navigation }) => {
       };
 
       try {
-        const docRef = doc(firestore, "quizzes", questionId);
+        const docRef = doc(firestore, "quizQuestions", questionId);
         await updateDoc(docRef, updatedQuestion);
         alert("Question updated successfully!");
         navigation.goBack();
@@ -67,33 +66,48 @@ export const EditQuestion = ({ route, navigation }) => {
       <View style={styles.card}>
         <TextInput
           style={styles.textInput}
-          placeholder="Enter question"
+          placeholder="Enter new question"
           value={question}
           onChangeText={setQuestion}
+          multiline={true} // Enable multiline
+          numberOfLines={4} // Set the number of lines
+          scrollEnabled={true} // Enable scrolling
         />
         {options.map((option, index) => (
           <View key={index} style={styles.optionContainer}>
             <TextInput
-              style={styles.textInput}
+              style={styles.textOptionInput}
               placeholder={`Option ${index + 1}`}
               value={option}
               onChangeText={(text) => handleOptionChange(text, index)}
             />
             <TouchableOpacity onPress={() => setSelectedOption(index)}>
-            {selectedOption === index ? (
-                <Text style={styles.selectedCheckbox}><AntDesign name="check" size={40} color="green" /></Text>
+              {selectedOption === index ? (
+                <Text style={styles.selectedCheckbox}>
+                  <AntDesign name="check" size={40} color="green" />
+                </Text>
               ) : (
-                <Text style={styles.unselectedCheckbox}><AntDesign name="close" size={40} color="red" /></Text>
+                <Text style={styles.unselectedCheckbox}>
+                  <AntDesign name="close" size={40} color="red" />
+                </Text>
               )}
             </TouchableOpacity>
           </View>
         ))}
-        <TouchableOpacity style={styles.addButton} onPress={handleSaveChanges}>
-          <Text>Save Changes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.addButton} onPress={() => navigation.goBack()}>
-          <Text>Cancel</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={handleSaveChanges}
+          >
+            <Text>Save Changes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text>Cancel</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

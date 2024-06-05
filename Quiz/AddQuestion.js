@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { styles } from "../styles";
+import { AntDesign } from "@expo/vector-icons";
 
 export const AddQuestion = ({ navigation }) => {
   const [newQuestion, setNewQuestion] = useState("");
@@ -88,7 +89,7 @@ export const AddQuestion = ({ navigation }) => {
 
   const handleBulkAddQuestions = async () => {
     try {
-      const quizCollection = collection(firestore, "quizzes");
+      const quizCollection = collection(firestore, "quizQuestions");
 
       for (let questionObj of questionsToAdd) {
         const q = query(
@@ -99,11 +100,11 @@ export const AddQuestion = ({ navigation }) => {
 
         if (querySnapshot.empty) {
           const allQuestionsSnapshot = await getDocs(quizCollection);
-          const newIndex = allQuestionsSnapshot.size;
+          const newIndex = allQuestionsSnapshot.size + 1;
 
           await addDoc(quizCollection, {
             ...questionObj,
-            index: newIndex
+            index: newIndex,
           });
         }
       }
@@ -126,13 +127,13 @@ export const AddQuestion = ({ navigation }) => {
       };
 
       try {
-        const quizCollection = collection(firestore, "quizzes");
+        const quizCollection = collection(firestore, "quizQuestions");
         const allQuestionsSnapshot = await getDocs(quizCollection);
-        const newIndex = allQuestionsSnapshot.size;
+        const newIndex = allQuestionsSnapshot.size + 1;
 
         await addDoc(quizCollection, {
           ...newQuestionObj,
-          index: newIndex
+          index: newIndex,
         });
 
         alert("Question added successfully!");
@@ -148,44 +149,61 @@ export const AddQuestion = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
+      <TouchableOpacity
+            style={styles.addButton}
+            onPress={handleBulkAddQuestions}
+          >
+            <Text>Add hardcoded questions</Text>
+          </TouchableOpacity>
         <TextInput
           style={styles.textInput}
           placeholder="Enter new question"
           value={newQuestion}
           onChangeText={setNewQuestion}
+          multiline={true} // Enable multiline
+          numberOfLines={4} // Set the number of lines
+          adjustsFontSizeToFit={true} // Adjust font size to fit
         />
         {newOptions.map((option, index) => (
           <View key={index} style={styles.optionContainer}>
             <TextInput
-              style={styles.textInput}
+              style={styles.textOptionInput}
               placeholder={`Option ${index + 1}`}
               value={option}
               onChangeText={(text) => handleOptionChange(text, index)}
+              multiline={true} // Enable multiline
+              numberOfLines={2} // Set the number of lines
+              adjustsFontSizeToFit={true} // Adjust font size to fit
             />
             <TouchableOpacity onPress={() => setSelectedOption(index)}>
-              {selectedOption === index ? ( // Check if this option is selected
-                <Text style={styles.selectedCheckbox}>&#10004;</Text> // Checked symbol
+              {selectedOption === index ? (
+                <Text style={styles.selectedCheckbox}>
+                  <AntDesign name="check" size={40} color="green" />
+                </Text>
               ) : (
-                <Text style={styles.unselectedCheckbox}>&#10006;</Text> // Unchecked symbol
+                <Text style={styles.unselectedCheckbox}>
+                  <AntDesign name="close" size={40} color="red" />
+                </Text>
               )}
             </TouchableOpacity>
           </View>
         ))}
-        <TouchableOpacity style={styles.addButton} onPress={handleAddQuestion}>
-          <Text>Add Question</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={handleBulkAddQuestions}
-        >
-          <Text>Add Default Questions</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text>Cancel</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={handleAddQuestion}
+          >
+            <Text>Add Question</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+        
       </View>
     </View>
   );

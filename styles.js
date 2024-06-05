@@ -25,50 +25,44 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  infocard: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 20,
-    marginTop: 20,
-    alignItems: "left",
-    shadowColor: "black",
-    elevation: 0,
-    width: "90%",
-  },
   textInput: {
     color: "black",
     backgroundColor: "white",
     borderRadius: 10,
-    padding: 10,
+    padding: 10, // Increase padding for better spacing
     margin: 5,
     shadowColor: "black",
     shadowOpacity: 1,
     shadowRadius: 10,
     elevation: 5,
     width: "90%",
-  },
-  button: {
     fontSize: 20,
-    color: "white",
-    backgroundColor: "#c0d6df",
+    textAlignVertical: "center", // Center text vertically
+    overflow: "hidden", // Hide overflowed text
+  },
+
+  textOptionInput: {
+    color: "black",
+    backgroundColor: "white",
     borderRadius: 10,
-    padding: 10,
-    margin: 5,
-    width: 100,
-    alignItems: "center",
+    padding: 5,
+    marginHorizontal: 15,
     shadowColor: "black",
     shadowOpacity: 1,
-    shadowRadius: 7,
+    shadowRadius: 10,
     elevation: 5,
+    width: "80%",
+    fontSize: 16,
   },
   addButton: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "#c0d6df",
+    backgroundColor: "#E88D67",
     borderRadius: 10,
     padding: 10,
     margin: 10,
-    width: 120,
+    width: "40%",
+
     alignItems: "center",
     shadowColor: "black",
     shadowOpacity: 1,
@@ -77,76 +71,33 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
   },
-  button2: {
+  cancelButton: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "white",
+    backgroundColor: "#E88D67",
     borderRadius: 10,
-    alignItems: "center",
     padding: 10,
-    width: 180,
-    margin: 5,
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
-  },
-  textButton: {
-    fontSize: 20,
-    color: "white",
-    backgroundColor: "white",
-    borderRadius: 5,
-    padding: 10,
-    width: 330,
-    margin: 2,
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
-  },
-  saveButton: {
-    fontSize: 20,
-    color: "white",
-    backgroundColor: "#007bff",
-    borderRadius: 10,
-    padding: 5,
-    margin: 5,
-    width: 50,
+    margin: 10,
+    width: "40%",
     alignItems: "center",
     shadowColor: "black",
     shadowOpacity: 1,
     shadowRadius: 7,
     elevation: 5,
-  },
-  deleteButton: {
-    fontSize: 20,
-    color: "white",
-    backgroundColor: "#c0d6df",
-    borderRadius: 10,
-    padding: 10,
-    margin: 5,
-    width: 100,
-    alignItems: "center",
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
+    flexDirection: "row",
+    justifyContent: "center",
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 20,
+    padding: 5,
+    width: "100%",
+
   },
   flatList: {
     width: "100%",
-  },
-  text: {
-    fontSize: 20,
-    color: "black",
-  },
-  title: {
-    fontSize: 20,
-    color: "black",
+    height: "65%",
   },
   quiztitle: {
     fontSize: 26,
@@ -159,94 +110,12 @@ export const styles = StyleSheet.create({
     marginVertical: 5,
     justifyContent: "center",
     alignItems: "center",
-    width: '100%',
-
-  },
-  editableTitle: {
-    fontSize: 20,
-    color: "black",
-    borderRadius: 10,
-    padding: 10,
-  },
-  map: {
     width: "100%",
-    height: "100%",
-  },
-  overlay: {
-    position: "absolute",
-    left: 20,
-    right: 20,
-    top: 20,
-    backgroundColor: "white",
-    padding: 5,
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 5,
-  },
-  overlayTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  overlayImage: {
-    width: "100%",
-    height: 200, // Adjust as needed
-    marginTop: 10,
-  },
-  markerStyle: {
-    width: 30, // Regular marker size
-    height: 30,
-    backgroundColor: "black",
-    borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  selectedMarkerStyle: {
-    width: 30, // Larger size for selected marker
-    height: 30,
-    backgroundColor: "red",
-    borderRadius: 15,
-  },
-  countdownRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 5,
-  },
-  countdownLabel: {
-    fontSize: 16,
-    color: "black",
-  },
-  countdownDays: {
-    fontSize: 16,
-    color: "black",
-  },
-  weatherContainer: {
-    padding: 10,
-    marginVertical: 10,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  weatherText: {
-    fontSize: 16,
-    marginBottom: 10,
-  },
-  logoutContainer: {
-    flexDirection: "row", // Aligns children in a row
-    justifyContent: "flex-end", // Aligns children to the right
-    padding: 10, // Add some padding for aesthetic spacing
-    width: "100%", // Ensure the container spans the full width
   },
   statusContainer: {
     flexDirection: "row", // Aligns children in a row
     justifyContent: "space-between", // Aligns children with space between them
     width: "100%", // Ensure the container spans the full width
-  },
-  logoutButton: {
-    backgroundColor: "#f0f0f0", // Light grey background
-    padding: 5, // Add some padding to the button
-    borderRadius: 5, // Round the corners slightly
   },
   optionText: {
     fontSize: 16,
@@ -256,28 +125,13 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
   },
-  nextButton: {
-    backgroundColor: "#007bff",
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    alignItems: "center",
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
-    width: 200,
-  },
-  nextButtonText: {
-    color: "white",
-    fontSize: 16,
-  },
   questionText: {
     fontSize: 16,
     color: "black",
   },
   centeredBoldText: {
     backgroundColor: "#E88D67",
+    fontSize: 16,
     color: "white",
     textAlign: "center",
     fontWeight: "bold",
@@ -285,21 +139,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     padding: 5,
     marginTop: 5,
-  },
-
-  startButton: {
-    fontSize: 30,
-    color: "white",
-    backgroundColor: "#28a745",
-    borderRadius: 10,
-    padding: 10,
-    margin: 5,
-    width: 200,
-    alignItems: "center",
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
   },
   questionContainer: {
     marginVertical: 2,
@@ -316,11 +155,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
     width: "100%",
-  },
-  timerText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginVertical: 10,
   },
   quizbutton: {
     backgroundColor: "#f0f0f0",
@@ -358,20 +192,25 @@ export const styles = StyleSheet.create({
   },
   scrollView: {
     marginVertical: 1,
-    height: '75%',
+    height: "75%",
   },
   answerContainer: {
     marginBottom: 20,
     padding: 10,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: "#f9f9f9",
     borderRadius: 5,
   },
   correctAnswerText: {
     fontSize: 16,
-    color: 'green',
+    color: "green",
   },
   wrongAnswerText: {
     fontSize: 16,
-    color: 'red',
+    color: "red",
+  },
+  addDeleteContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10,
   },
 });

@@ -4,7 +4,6 @@ import { TouchableOpacity } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as React from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { Home } from "./Notes/Home";
 import { Quiz } from "./Quiz/Quiz";
 import { QuizMenu } from "./Quiz/QuizMenu";
 import { AddQuestion } from "./Quiz/AddQuestion";
@@ -37,32 +36,11 @@ export default function App() {
                 fontWeight: "bold",
                 fontSize: 20, // Slightly larger text
               },
-              headerRight: () => (
+              /*headerRight: () => (
                 <LogoutButton
                   onPress={() => console.log("Perform logout logic here")}
                 />
-              ),
-            }}
-          />
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              headerShown: true,
-              title: "Home",
-              headerStyle: { backgroundColor: "#153448" }, // Dark teal background
-              headerTitleAlign: "center",
-              headerTintColor: "#ffffff", // White for text and icons
-              headerShadowVisible: false, // Disable the shadow for a cleaner look
-              headerTitleStyle: {
-                fontWeight: "bold",
-                fontSize: 20, // Slightly larger text
-              },
-              headerRight: () => (
-                <LogoutButton
-                  onPress={() => console.log("Perform logout logic here")}
-                />
-              ),
+              ),*/
             }}
           />
 
@@ -72,19 +50,19 @@ export default function App() {
             options={{
               headerShown: true,
               title: "AddQuestion",
-              headerStyle: { backgroundColor: "#005C78" }, // Dark teal background
+              headerStyle: { backgroundColor: "#153448" },
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", // White for text and icons
-              headerShadowVisible: false, // Disable the shadow for a cleaner look
+              headerTintColor: "#ffffff", 
+              headerShadowVisible: false, 
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, // Slightly larger text
+                fontSize: 20, 
               },
-              headerRight: () => (
+              /*headerRight: () => (
                 <LogoutButton
                   onPress={() => console.log("Perform logout logic here")}
                 />
-              ),
+              ),*/
             }}
           />
           <Stack.Screen
@@ -93,19 +71,19 @@ export default function App() {
             options={{
               headerShown: true,
               title: "Quiz",
-              headerStyle: { backgroundColor: "#005C78" }, // Dark teal background
+              headerStyle: { backgroundColor: "#153448" }, 
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", // White for text and icons
-              headerShadowVisible: false, // Disable the shadow for a cleaner look
+              headerTintColor: "#ffffff", 
+              headerShadowVisible: false, 
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, // Slightly larger text
+                fontSize: 20, 
               },
-              headerRight: () => (
+              /*headerRight: () => (
                 <LogoutButton
                   onPress={() => console.log("Perform logout logic here")}
                 />
-              ),
+              ),*/
             }}
           />
           <Stack.Screen
@@ -114,19 +92,19 @@ export default function App() {
             options={{
               headerShown: true,
               title: "EditQuestion",
-              headerStyle: { backgroundColor: "#005C78" }, // Dark teal background
+              headerStyle: { backgroundColor: "#153448" }, 
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", // White for text and icons
-              headerShadowVisible: false, // Disable the shadow for a cleaner look
+              headerTintColor: "#ffffff", 
+              headerShadowVisible: false, 
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, // Slightly larger text
+                fontSize: 20, 
               },
-              headerRight: () => (
+              /*headerRight: () => (
                 <LogoutButton
                   onPress={() => console.log("Perform logout logic here")}
                 />
-              ),
+              ),*/
             }}
           />
         </Stack.Navigator>

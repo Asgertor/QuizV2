@@ -12,12 +12,12 @@ export const Quiz = ({ navigation }) => {
   const [correctOption, setCorrectOption] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
-  const [timer, setTimer] = useState(20);
+  const [timer, setTimer] = useState(10);
   const [answers, setAnswers] = useState([]); // Track answers
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const q = query(collection(firestore, "quizzes"), orderBy("index"));
+      const q = query(collection(firestore, "quizQuestions"), orderBy("index"));
       const querySnapshot = await getDocs(q);
       const questionsList = querySnapshot.docs.map((doc) => doc.data());
       setQuestions(questionsList);
@@ -38,7 +38,7 @@ export const Quiz = ({ navigation }) => {
   }, [timer]);
 
   useEffect(() => {
-    setTimer(20); // Reset timer when question changes
+    setTimer(10);
   }, [currentQuestionIndex]);
 
   const handleOptionPress = (option) => {
@@ -68,7 +68,7 @@ export const Quiz = ({ navigation }) => {
   const handleNextPress = () => {
     setSelectedOption(null);
     setCorrectOption(null);
-    setTimer(20);
+    setTimer(10);
 
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -78,7 +78,7 @@ export const Quiz = ({ navigation }) => {
   };
 
   if (questions.length === 0) {
-    return null;
+    return <Text> loading... </Text>;
   }
 
   if (quizFinished) {
