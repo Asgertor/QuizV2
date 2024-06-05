@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
   },
   flatList: {
     width: "100%",
-    height: "65%",
+    height: "60%",
   },
   quiztitle: {
     fontSize: 26,

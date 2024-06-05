@@ -6,19 +6,21 @@ import { styles } from "../styles";
 import { AntDesign } from "@expo/vector-icons";
 
 export const AddQuestion = ({ navigation }) => {
-  const [newQuestion, setNewQuestion] = useState("");
-  const [newOptions, setNewOptions] = useState(["", "", "", ""]);
-  const [selectedOption, setSelectedOption] = useState(null); // Store index of selected option
+  const [newQuestion, setNewQuestion] = useState(""); // Initialize with an empty string
+  const [newOptions, setNewOptions] = useState(["", "", "", ""]); // Initialize with 4 empty strings
+  const [selectedOption, setSelectedOption] = useState(null); // Initialize with null
 
+  // Update the option at the specified index
   const handleOptionChange = (text, index) => {
     setNewOptions((prevOptions) => [
       ...prevOptions.slice(0, index),
       text,
       ...prevOptions.slice(index + 1),
     ]);
-    setSelectedOption(index); // Set selected option index
+    setSelectedOption(index);
   };
 
+  // Add hardcoded questions to the Firestore database
   const questionsToAdd = [
     {
       question: "What is the largest ocean on Earth?",
@@ -87,6 +89,7 @@ export const AddQuestion = ({ navigation }) => {
     },
   ];
 
+  // Add hardcoded questions to the Firestore database
   const handleBulkAddQuestions = async () => {
     try {
       const quizCollection = collection(firestore, "quizQuestions");
@@ -109,11 +112,14 @@ export const AddQuestion = ({ navigation }) => {
         }
       }
       alert("Default questions added successfully!");
+      navigation.goBack();
+
     } catch (error) {
       console.error("Error adding questions: ", error);
     }
   };
 
+  // Add a new question to the Firestore database
   const handleAddQuestion = async () => {
     if (
       newQuestion &&
@@ -146,23 +152,24 @@ export const AddQuestion = ({ navigation }) => {
     }
   };
 
+  // Return the JSX component
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-      <TouchableOpacity
-            style={styles.addButton}
-            onPress={handleBulkAddQuestions}
-          >
-            <Text>Add hardcoded questions</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={handleBulkAddQuestions}
+        >
+          <Text>Add hardcoded questions</Text>
+        </TouchableOpacity>
         <TextInput
           style={styles.textInput}
           placeholder="Enter new question"
           value={newQuestion}
           onChangeText={setNewQuestion}
-          multiline={true} // Enable multiline
-          numberOfLines={4} // Set the number of lines
-          adjustsFontSizeToFit={true} // Adjust font size to fit
+          multiline={true}
+          numberOfLines={4}
+          adjustsFontSizeToFit={true}
         />
         {newOptions.map((option, index) => (
           <View key={index} style={styles.optionContainer}>
@@ -171,9 +178,9 @@ export const AddQuestion = ({ navigation }) => {
               placeholder={`Option ${index + 1}`}
               value={option}
               onChangeText={(text) => handleOptionChange(text, index)}
-              multiline={true} // Enable multiline
-              numberOfLines={2} // Set the number of lines
-              adjustsFontSizeToFit={true} // Adjust font size to fit
+              multiline={true}
+              numberOfLines={2}
+              adjustsFontSizeToFit={true}
             />
             <TouchableOpacity onPress={() => setSelectedOption(index)}>
               {selectedOption === index ? (
@@ -203,7 +210,6 @@ export const AddQuestion = ({ navigation }) => {
             <Text>Cancel</Text>
           </TouchableOpacity>
         </View>
-        
       </View>
     </View>
   );

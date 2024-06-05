@@ -11,13 +11,6 @@ import { EditQuestion } from "./Quiz/EditQuestion";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-
-  const LogoutButton = ({ onPress }) => (
-    <TouchableOpacity onPress={onPress} style={{ marginRight: 10 }}>
-      <AntDesign name="logout" size={24} color="white" />
-    </TouchableOpacity>
-  );
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
@@ -28,19 +21,14 @@ export default function App() {
             options={{
               headerShown: true,
               title: "QuizMenu",
-              headerStyle: { backgroundColor: "#153448" }, // Dark teal background
+              headerStyle: { backgroundColor: "#153448" },
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", // White for text and icons
-              headerShadowVisible: false, // Disable the shadow for a cleaner look
+              headerTintColor: "#ffffff", 
+              headerShadowVisible: false,
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, // Slightly larger text
+                fontSize: 20, 
               },
-              /*headerRight: () => (
-                <LogoutButton
-                  onPress={() => console.log("Perform logout logic here")}
-                />
-              ),*/
             }}
           />
 
@@ -52,17 +40,12 @@ export default function App() {
               title: "AddQuestion",
               headerStyle: { backgroundColor: "#153448" },
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", 
-              headerShadowVisible: false, 
+              headerTintColor: "#ffffff",
+              headerShadowVisible: false,
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, 
+                fontSize: 20,
               },
-              /*headerRight: () => (
-                <LogoutButton
-                  onPress={() => console.log("Perform logout logic here")}
-                />
-              ),*/
             }}
           />
           <Stack.Screen
@@ -71,19 +54,14 @@ export default function App() {
             options={{
               headerShown: true,
               title: "Quiz",
-              headerStyle: { backgroundColor: "#153448" }, 
+              headerStyle: { backgroundColor: "#153448" },
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", 
-              headerShadowVisible: false, 
+              headerTintColor: "#ffffff",
+              headerShadowVisible: false,
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, 
+                fontSize: 20,
               },
-              /*headerRight: () => (
-                <LogoutButton
-                  onPress={() => console.log("Perform logout logic here")}
-                />
-              ),*/
             }}
           />
           <Stack.Screen
@@ -92,19 +70,14 @@ export default function App() {
             options={{
               headerShown: true,
               title: "EditQuestion",
-              headerStyle: { backgroundColor: "#153448" }, 
+              headerStyle: { backgroundColor: "#153448" },
               headerTitleAlign: "center",
-              headerTintColor: "#ffffff", 
-              headerShadowVisible: false, 
+              headerTintColor: "#ffffff",
+              headerShadowVisible: false,
               headerTitleStyle: {
                 fontWeight: "bold",
-                fontSize: 20, 
+                fontSize: 20,
               },
-              /*headerRight: () => (
-                <LogoutButton
-                  onPress={() => console.log("Perform logout logic here")}
-                />
-              ),*/
             }}
           />
         </Stack.Navigator>
