@@ -3,22 +3,27 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4f6d7a",
+    backgroundColor: "#153448",
     justifyContent: "top",
     alignItems: "center",
     width: "100%",
     paddingTop: 20,
   },
   card: {
-    backgroundColor: "#e8dab2",
+    width: "90%",
+    backgroundColor: "#F8CBA6",
     borderRadius: 10,
-    padding: 10,
-    paddingTop: 20,
+    padding: 20,
     marginTop: 10,
     alignItems: "center",
-    shadowColor: "black",
-    elevation: 10,
-    width: "90%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   infocard: {
     backgroundColor: "white",
@@ -40,13 +45,14 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10,
     elevation: 5,
+    width: "90%",
   },
   button: {
     fontSize: 20,
     color: "white",
     backgroundColor: "#c0d6df",
     borderRadius: 10,
-    padding: 5,
+    padding: 10,
     margin: 5,
     width: 100,
     alignItems: "center",
@@ -56,12 +62,11 @@ export const styles = StyleSheet.create({
     elevation: 5,
   },
   addButton: {
-    fontSize: 30,
-    flexDirection: "row",
+    fontSize: 20,
     color: "white",
     backgroundColor: "#c0d6df",
     borderRadius: 10,
-    padding: 5,
+    padding: 10,
     margin: 10,
     width: 120,
     alignItems: "center",
@@ -69,6 +74,8 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 7,
     elevation: 5,
+    flexDirection: "row",
+    justifyContent: "center",
   },
   button2: {
     fontSize: 20,
@@ -100,12 +107,11 @@ export const styles = StyleSheet.create({
   saveButton: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "#c0d6df",
-    color: "white",
+    backgroundColor: "#007bff",
     borderRadius: 10,
     padding: 5,
     margin: 5,
-    width: 100,
+    width: 50,
     alignItems: "center",
     shadowColor: "black",
     shadowOpacity: 1,
@@ -116,9 +122,8 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     backgroundColor: "#c0d6df",
-    color: "white",
     borderRadius: 10,
-    padding: 5,
+    padding: 10,
     margin: 5,
     width: 100,
     alignItems: "center",
@@ -130,10 +135,10 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 20,
   },
   flatList: {
-    marginTop: 20,
-    color: "white",
+    width: "100%",
   },
   text: {
     fontSize: 20,
@@ -145,7 +150,17 @@ export const styles = StyleSheet.create({
   },
   quiztitle: {
     fontSize: 26,
-    color: "black",
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#E88D67",
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    width: '100%',
+
   },
   editableTitle: {
     fontSize: 20,
@@ -167,9 +182,8 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    elevation: 50,
+    elevation: 5,
   },
-
   overlayTitle: {
     fontSize: 16,
     fontWeight: "bold",
@@ -200,12 +214,13 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   countdownLabel: {
-    // Add your styling here
+    fontSize: 16,
+    color: "black",
   },
   countdownDays: {
-    // Add your styling here
+    fontSize: 16,
+    color: "black",
   },
-  // Add to your styles object
   weatherContainer: {
     padding: 10,
     marginVertical: 10,
@@ -223,56 +238,140 @@ export const styles = StyleSheet.create({
     padding: 10, // Add some padding for aesthetic spacing
     width: "100%", // Ensure the container spans the full width
   },
+  statusContainer: {
+    flexDirection: "row", // Aligns children in a row
+    justifyContent: "space-between", // Aligns children with space between them
+    width: "100%", // Ensure the container spans the full width
+  },
   logoutButton: {
     backgroundColor: "#f0f0f0", // Light grey background
     padding: 5, // Add some padding to the button
     borderRadius: 5, // Round the corners slightly
   },
-  correctOptionButton: {
-    backgroundColor: "green",
-  },
-  incorrectOptionButton: {
-    backgroundColor: "red",
-  },
   optionText: {
     fontSize: 16,
-    color: "#000", // Change this based on your preference
+    color: "#000",
   },
   progressText: {
     fontSize: 16,
     marginBottom: 10,
   },
-  quizbutton: {
-    fontSize: 20,
-    color: "white",
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 3,
-    margin: 5,
-    height: 40,
-    width: '100%',
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 7,
-    elevation: 5,
-  },
   nextButton: {
-    float: "right",
-    marginTop: 20,
+    backgroundColor: "#007bff",
     padding: 10,
-    backgroundColor: "#c0d6df",
-    width: 200,
-    borderRadius: 10,
+    borderRadius: 5,
+    marginTop: 20,
     alignItems: "center",
     shadowColor: "black",
     shadowOpacity: 1,
     shadowRadius: 7,
     elevation: 5,
+    width: 200,
   },
   nextButtonText: {
-    color: "black",
+    color: "white",
     fontSize: 16,
+  },
+  questionText: {
+    fontSize: 16,
+    color: "black",
+  },
+  centeredBoldText: {
+    backgroundColor: "#E88D67",
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    borderRadius: 10,
+    width: "100%",
+    padding: 5,
+    marginTop: 5,
+  },
+
+  startButton: {
+    fontSize: 30,
+    color: "white",
+    backgroundColor: "#28a745",
+    borderRadius: 10,
+    padding: 10,
+    margin: 5,
+    width: 200,
+    alignItems: "center",
+    shadowColor: "black",
+    shadowOpacity: 1,
+    shadowRadius: 7,
+    elevation: 5,
+  },
+  questionContainer: {
+    marginVertical: 2,
+    backgroundColor: "white",
+    paddingLeft: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    width: "100%",
+  },
+  timerText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginVertical: 10,
+  },
+  quizbutton: {
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 5,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  correctOptionButton: {
+    backgroundColor: "#71CB90",
+    width: "100%",
+  },
+  incorrectOptionButton: {
+    backgroundColor: "#EB442C",
+    width: "100%",
+  },
+  optionText: {
+    fontSize: 16,
+  },
+  optionContainer: {
+    flexDirection: "row",
+    marginTop: 10,
+    alignItems: "center",
+    width: "100%",
+  },
+  selectedCheckbox: {
+    fontSize: 50,
+    color: "green",
+  },
+  unselectedCheckbox: {
+    fontSize: 50,
+    color: "gray",
+  },
+  scrollView: {
+    marginVertical: 1,
+    height: '75%',
+  },
+  answerContainer: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 5,
+  },
+  correctAnswerText: {
+    fontSize: 16,
+    color: 'green',
+  },
+  wrongAnswerText: {
+    fontSize: 16,
+    color: 'red',
   },
 });
