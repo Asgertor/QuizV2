@@ -113,7 +113,6 @@ export const AddQuestion = ({ navigation }) => {
       }
       alert("Default questions added successfully!");
       navigation.goBack();
-
     } catch (error) {
       console.error("Error adding questions: ", error);
     }

@@ -55,7 +55,7 @@ export const Quiz = ({ navigation }) => {
       question: questions[currentQuestionIndex].question,
       userAnswer: option,
       correctAnswer: correctOption,
-      isCorrect: option === correctOption
+      isCorrect: option === correctOption,
     };
     setAnswers([...answers, newAnswer]);
 
@@ -87,18 +87,27 @@ export const Quiz = ({ navigation }) => {
         <View style={styles.card}>
           <Text style={styles.quiztitle}>Quiz Finished!</Text>
           <Text style={styles.progressText}>
-            You got {correctAnswersCount} out of {questions.length} questions right.
+            You got {correctAnswersCount} out of {questions.length} questions
+            right.
           </Text>
           <ScrollView style={styles.scrollView}>
             {answers.map((answer, index) => (
               <View key={index} style={styles.answerContainer}>
-                <Text style={styles.questionText}>{index + 1}. {answer.question}</Text>
+                <Text style={styles.questionText}>
+                  {index + 1}. {answer.question}
+                </Text>
                 {answer.isCorrect ? (
-                  <Text style={styles.correctAnswerText}>Right answer: {answer.correctAnswer}</Text>
+                  <Text style={styles.correctAnswerText}>
+                    Right answer: {answer.correctAnswer}
+                  </Text>
                 ) : (
                   <>
-                    <Text style={styles.wrongAnswerText}>You answered: {answer.userAnswer}</Text>
-                    <Text style={styles.correctAnswerText}>Right answer: {answer.correctAnswer}</Text>
+                    <Text style={styles.wrongAnswerText}>
+                      You answered: {answer.userAnswer}
+                    </Text>
+                    <Text style={styles.correctAnswerText}>
+                      Right answer: {answer.correctAnswer}
+                    </Text>
                   </>
                 )}
               </View>
